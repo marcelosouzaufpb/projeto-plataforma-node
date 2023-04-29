@@ -2,12 +2,8 @@ const express = require('express')
 const morgan = require('morgan')
 const helmet = require('helmet')
 
+const port = process.env.PORT || 3000;
 const router = require('./services/book.service');
-
-const options = {
-    key: fs.readFileSync('/etc/letsencrypt/live/$DOMAIN/privkey.pem'),
-    cert: fs.readFileSync('/etc/letsencrypt/live/$DOMAIN/fullchain.pem')
-};
 
 const app = express();
 
@@ -16,4 +12,11 @@ app.use(helmet());
 
 app.use('/api/v1', router);
 
-https.createServer(options, app).listen(8000);
+
+app.listen(port, () => {
+    console.log(`Example app listening at http://localhost:${port}`);
+});
+
+app.use((req, res) => {
+    res.status(404).send('It is not found.');
+});
