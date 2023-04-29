@@ -1,14 +1,22 @@
-# Utiliza uma imagem de node da Alpine
-FROM node:alpine
+FROM node:16-slim as BUILDER 
+LABEL maintainer="Marcelo Souza Santos"
 
-# Cria o diretório da aplicação no container
-WORKDIR /app
+WORKDIR /usr/src/app
 
-# Publica a aplicação
-COPY package.json .
+# Install app dependencies
+COPY package*.json ./
 RUN npm install
-COPY .. .
 
-# Abre a porta 3000 e executa o comando para iniciar a aplicação
+COPY src ./src
+
+FROM node:16-alpine
+
+ARG NODE_ENV
+
+WORKDIR /usr/src/app
+
+COPY --from=BUILDER /usr/src/app/ ./
+
 EXPOSE 3000
-CMD ["npm", "start"]
+
+CMD [ "npm", "start" ]
