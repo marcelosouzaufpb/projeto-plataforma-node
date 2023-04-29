@@ -7,7 +7,7 @@ services:
       context: ./api
       dockerfile: api/Dockerfile
     volumes:
-      - ./:/usr/src/app
+      - ./:/usr/routes/app
     environment:
       - PORT=3000
     ports:
