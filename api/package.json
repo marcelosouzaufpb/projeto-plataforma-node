@@ -2,9 +2,9 @@
   "name": "projeto-plataforma-node",
   "version": "1.0.0",
   "description": "Trabalho da disciplina Plataforma Node",
-  "main": "src/app.js",
+  "main": "app.js",
   "scripts": {
-    "start": "node src/app.js",
+    "start": "node app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

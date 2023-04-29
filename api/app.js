@@ -3,7 +3,7 @@ const morgan = require('morgan')
 const helmet = require('helmet')
 
 const port = process.env.PORT || 3000;
-const router = require('./services/book.service');
+const router = require('./routes/book.rootes');
 
 const app = express();
 
