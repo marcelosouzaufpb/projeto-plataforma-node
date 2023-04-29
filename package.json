@@ -1,0 +1,24 @@
+{
+  "name": "projeto-plataforma-node",
+  "version": "1.0.0",
+  "description": "Trabalho da disciplina Plataforma Node",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marcelosouzaufpb/projeto-plataforma-node.git"
+  },
+  "keywords": [
+    "nodejs",
+    "express",
+    "demo"
+  ],
+  "author": "Marcelo Souza Santos",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/marcelosouzaufpb/projeto-plataforma-node/issues"
+  },
+  "homepage": "https://github.com/marcelosouzaufpb/projeto-plataforma-node#readme"
+}
