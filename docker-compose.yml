@@ -4,7 +4,7 @@ services:
   app:
     container_name: projeto-plataforma-node
     build:
-      context: .
+      context: ./api
       dockerfile: api/Dockerfile
     volumes:
       - ./:/usr/src/app
