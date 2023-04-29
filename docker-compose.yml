@@ -4,7 +4,7 @@ services:
   app:
     container_name: praticas-ci-cd
     build:
-      context: ./api
+      context: .
       dockerfile: Dockerfile
     volumes:
       - ./:/usr/src/app
