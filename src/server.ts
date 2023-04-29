@@ -15,13 +15,12 @@ app.get(url, async () => {
     return {books};
 });
 
-app.get(`${url}/:id`, async (request: any) => {
-    const {id} = request.params;
-    const books = await prisma.book.findUnique({
+app.get(`${url}/:id`, async (request: any, reply: any) => {
+    const id = String(request?.params?.id);
+    const item = await prisma.book.findUnique({
         where: {id: id}
     });
-
-    return {books};
+    return reply.status(200).send(item);
 });
 
 app.post(url, async (request, reply) => {
@@ -40,7 +39,7 @@ app.post(url, async (request, reply) => {
 });
 
 app.put(`${url}/:id`, async (request: any, reply) => {
-    const {id} = request.params;
+    const id = String(request?.params?.id);
     const validationSchema = z.object({
         title: z.string(),
         author: z.string()
@@ -57,7 +56,7 @@ app.put(`${url}/:id`, async (request: any, reply) => {
 });
 
 app.delete(`${url}/:id`, async (request: any, reply) => {
-    const {id} = request.params;
+    const id = String(request?.params?.id);
     const item: any = await prisma.book.delete({
         where: {id: id}
     });
