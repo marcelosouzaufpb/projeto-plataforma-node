@@ -14,12 +14,12 @@ let bookstore: any = {
     ]
 };
 
-app.get(url, async () => {
+app.get(url, async (request:any, reply:any) => {
     // const books = await prisma.book.findMany();
     //
     // return {books};
 
-    return bookstore;
+    return reply.status(200).send(bookstore);
 });
 
 app.get(`${url}/:id`, async (request: any, reply: any) => {
