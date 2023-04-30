@@ -2,12 +2,6 @@
 import fastify from 'fastify'
 
 const app: any = fastify();
-app.register((fastify: any, options: any, done: any) => {
-    fastify.register(require("fastify-cors"), {
-        origin: "*"
-    });
-    done();
-});
 // const prisma = new PrismaClient();
 
 const version = 'v1';
@@ -21,6 +15,7 @@ let bookstore: any = {
 };
 
 app.get(url, async (request:any, reply:any) => {
+    reply.header("Access-Control-Allow-Origin", "*");
     // const books = await prisma.book.findMany();
     //
     // return {books};
