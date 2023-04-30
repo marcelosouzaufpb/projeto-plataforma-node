@@ -1,8 +1,14 @@
-import {PrismaClient} from '@prisma/client';
+// import {PrismaClient} from '@prisma/client';
 import fastify from 'fastify'
 
-const app = fastify();
-const prisma = new PrismaClient();
+const app: any = fastify();
+app.register((fastify: any, options: any, done: any) => {
+    fastify.register(require("fastify-cors"), {
+        origin: "*"
+    });
+    done();
+});
+// const prisma = new PrismaClient();
 
 const version = 'v1';
 const path = 'books';
@@ -106,3 +112,5 @@ app.listen({
 }).then(() => {
     console.log(`HTTP running, port - ${PORT}`)
 });
+
+const cors = require('cors');
