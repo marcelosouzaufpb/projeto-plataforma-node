@@ -107,5 +107,3 @@ app.listen({
 }).then(() => {
     console.log(`HTTP running, port - ${PORT}`)
 });
-
-const cors = require('cors');
