@@ -1,8 +1,13 @@
 // import {PrismaClient} from '@prisma/client';
 import fastify from 'fastify'
+import cors from '@fastify/cors'
 
 const app: any = fastify();
 // const prisma = new PrismaClient();
+
+app.register(cors, {
+    origin: ['*']
+})
 
 const version = 'v1';
 const path = 'books';
@@ -102,7 +107,6 @@ app.delete(`${url}/:id`, async (request: any, reply: any) => {
 const PORT = process.env.PORT ? Number(process.env.PORT) : 3000;
 
 app.listen({
-    host: '0.0.0.0',
     port: PORT
 }).then(() => {
     console.log(`HTTP running, port - ${PORT}`)
